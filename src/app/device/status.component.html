@@ -1,0 +1,59 @@
+
+<div>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)=" startDate = $event" >
+    <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker1" placeholder="Choose a date" (dateInput)="endDate = $event" >
+    <mat-datepicker-toggle matSuffix [for]="picker1" ></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+  <button mat-button="filter" (click)="filterByDate()">Filter</button>
+<table mat-table [dataSource]=statuses class="mat-elevation-z8">
+  <ng-container matColumnDef="status_id">
+    <th mat-header-cell *matHeaderCellDef> ID</th>
+    <td mat-cell *matCellDef="let status"> {{status.status_id}}</td>
+  </ng-container>
+  <ng-container matColumnDef="temperature">
+    <th mat-header-cell *matHeaderCellDef> Temperature</th>
+    <td mat-cell *matCellDef="let status"> {{status.temperature}}</td>
+  </ng-container>
+  <ng-container matColumnDef="open_duration">
+    <th mat-header-cell *matHeaderCellDef> Open Duration</th>
+    <td mat-cell *matCellDef="let status"> {{status.open_duration}}</td>
+  </ng-container>
+  <ng-container matColumnDef="is_open">
+    <th mat-header-cell *matHeaderCellDef> Is Open</th>
+    <td mat-cell *matCellDef="let status"> {{status.is_open}}</td>
+
+  </ng-container>
+  <ng-container matColumnDef="memory">
+    <th mat-header-cell *matHeaderCellDef> Memory</th>
+    <td mat-cell *matCellDef="let status"> {{status.memory}}</td>
+  </ng-container>
+  <ng-container matColumnDef="cpu">
+    <th mat-header-cell *matHeaderCellDef> CPU</th>
+    <td mat-cell *matCellDef="let status"> {{status.cpu}}</td>
+  </ng-container>
+  <ng-container matColumnDef="device_id">
+    <th mat-header-cell *matHeaderCellDef> Device Id</th>
+    <td mat-cell *matCellDef="let status"> {{status.deviceId}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="requestDate">
+    <th mat-header-cell *matHeaderCellDef> Request Date</th>
+    <td mat-cell *matCellDef="let status"> {{status.requestDate}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="statusColumn"></tr>
+  <tr mat-row *matRowDef="let row; columns: statusColumn;"></tr>
+</table>
+  <button mat-button="prev" class="btn btn-danger" (click)="changePage('prev')"> < </button>
+  <button mat-button="next" class="btn btn-danger" (click)="changePage('next')"> > </button>
+  <mat-select [(value)]="size"  class="select-box" (selectionChange)="page = 0; ngOnInit()">
+    <mat-option value="5">5</mat-option>
+    <mat-option value="10">10</mat-option>
+    <mat-option value="15">15</mat-option>
+  </mat-select>
+</div>

@@ -1,0 +1,49 @@
+table {
+  width: 100ex;
+}
+
+mat-tab-group{
+display: flex;
+align-items: flex-start;
+justify-content: flex-start;
+margin: 16px;
+padding: 16px;
+border-radius: 8px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.example-large-box {
+  height: border-box;
+  width: 1000px;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 5px;
+}
+
+.select-box{
+  width: 95px;
+}
+
+
+

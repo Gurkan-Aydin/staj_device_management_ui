@@ -1,0 +1,17 @@
+<div>
+  <mat-form-field>
+    <input matInput [value]="data['device'].url"  (input)="nextDevice.url = $event.target.value" placeholder="URL" >
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Type" [(value)] = "data['device'].type">
+      <mat-option *ngFor="let deviceType of deviceTypes" [value]="deviceType"
+                  (onSelectionChange)="data['device'].type=deviceType"  >
+        {{deviceType}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [value]="data['device'].ip"  (input)="nextDevice.ip = $event.target.value" placeholder="IP" >
+  </mat-form-field>
+  <button mat-button="update" class="btn btn-danger" (click)="onNoClick()">Update Device</button>
+</div>

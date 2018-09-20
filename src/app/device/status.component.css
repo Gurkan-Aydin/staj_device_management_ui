@@ -1,0 +1,6 @@
+table {
+  width: 100ex;
+}
+.example-container > * {
+  width: 100px;
+}
